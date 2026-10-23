@@ -1,19 +1,15 @@
 # Unmute: System Block Diagram
 
 **Contest:** PolarFire FPGA Design Contest 2026, Track 1 (PolarFire SoC Discovery Kit)
-**Team:** Hello KiTY
+**Team:** [Team name]
 
 ![System block diagram](diagram.png)
+
+*Signals flow left to right. Lines without arrowheads are buses. "(optional)" marks the two classifier placements; the design uses one.*
 
 ## Overview
 
 Unmute is a hearing-assistance design for people with hearing loss. It splits the work across the two halves of the PolarFire SoC. The FPGA fabric handles the time-critical audio path, so amplification latency is set by hardware rather than by the operating system. The RISC-V cores handle the decisions: recognizing safety-critical sounds, combining sound type with direction, raising alerts, and fitting the device to the user's hearing.
-
-## How to Read the Diagram
-
-The diagram flows left to right. The microphone array is on the left, the processing is in the middle, and the outputs are on the right. The two grey-bordered regions show where each block runs: the **FPGA fabric** (left region) and the **RISC-V cores** (right region).
-
-Arrows show the direction of signal flow. Lines without arrowheads are bus connections that split a signal to more than one block. Blocks marked **(optional)** are part of the classifier placement comparison, not the base design.
 
 ## Blocks
 
@@ -31,7 +27,7 @@ Arrows show the direction of signal flow. Lines without arrowheads are bus conne
 
 **Alert generation (RISC-V).** Turns each event into a visual indicator and a haptic alert, so users who cannot rely on hearing still know what is happening and from where.
 
-**Audiogram fitting (RISC-V).** Converts the user's audiogram into gain settings. The "filter gains" control path sends these settings back to the filterbank. It runs around the outside of the diagram to avoid crossing the signal lines.
+**Audiogram fitting (RISC-V).** Converts the user's audiogram into gain settings. The "filter gains" control path sends these settings back to the filterbank, routed around the outside of the diagram so it does not cross the signal lines.
 
 **Outputs.** The earphone or speaker receives amplified audio. The visual indicator and haptic actuator receive alerts.
 
