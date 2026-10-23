@@ -1,7 +1,7 @@
 # Unmute: System Block Diagram
 
 **Contest:** PolarFire FPGA Design Contest 2026, Track 1 (PolarFire SoC Discovery Kit)
-**Team:** [Team name]
+**Team:** Hello KiTY
 
 ![System block diagram](diagram.png)
 
